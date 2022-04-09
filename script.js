@@ -1,4 +1,4 @@
-const uri="https://api.openweathermap.org/data/2.5/weather?q=London&appid=1c0e8e1fdc74b7cd8e3d09e96e33f94f";
+const root="https://api.openweathermap.org/data/2.5/weather?";
 
 
 document.querySelector("button").addEventListener("click", clickEventHandler)
@@ -9,10 +9,18 @@ function clickEventHandler(){
     const options={
         method:"GET",
         mode:"cors",
-
+        params:{
+            "q":"London",
+            "appid":"1c0e8e1fdc74b7cd8e3d09e96e33f94f"
+        }
         
     }
-    
+    const query=Object.keys(options.params)
+                .map(k=>encodeURIComponent(k)+"="+encodeURIComponent(options.params[k]))
+                .join("&");
+
+    const uri=root+query;
+
     const request=new Request(uri, options);
     fetch(request)
         .then((result)=>{
