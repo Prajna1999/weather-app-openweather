@@ -11,17 +11,18 @@ document.querySelector("button").addEventListener("click", clickEventHandler)
 
 // const request=new Request(root,options);
 function clickEventHandler(){
-    fetch(root)
-    .then((result)=>{
-        if(!result.ok){
-            throw new Error("Something Went Wrong!")
-        } else{
-            return result.json();
-        }
-        
-    }).then((result)=>{
-        console.log(result);
-    }).catch((e)=>console.log("Error: ", e.message))
+    const xhr = new XMLHttpRequest();
+
+    xhr.onload = () => {
+        const data = xhr.responseText;
+    
+        // log response
+        console.log(data);
+    };
+    
+    // create and send the reqeust
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+    xhr.send();
 }
 
 
