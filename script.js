@@ -1,29 +1,31 @@
-const root="https://jsonplaceholder.typicode.com/todos/1";
+const uri="https://api.openweathermap.org/data/2.5/weather?q=London&appid=1c0e8e1fdc74b7cd8e3d09e96e33f94f";
 
 
 document.querySelector("button").addEventListener("click", clickEventHandler)
 
-// const options={
-//     method:"GET",
-//     // mode:"cors",
-//     // headers:h,
-// }
 
-// const request=new Request(root,options);
 function clickEventHandler(){
-    const xhr = new XMLHttpRequest();
 
-    xhr.onload = () => {
-        const data = xhr.responseText;
+    const options={
+        method:"GET",
+        mode:"cors",
+
+        
+    }
     
-        // log response
-        console.log(data);
-    };
-    
-    // create and send the reqeust
-    xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts');
-    xhr.send();
+    const request=new Request(uri, options);
+    fetch(request)
+        .then((result)=>{
+            if(!result.ok){
+                throw new Error("Bad Request");
+            }
+            return result.json();
+        }).then((data)=>console.log(data.main))
+        .catch((e)=>console.log("Error: ", e.message));
+
 }
+
+
 
 
 
