@@ -35,11 +35,12 @@ header i{
     cursor: pointer;
 }
 .wrapper .input-part{
+    display: none;
     padding: 20px 25px 30px;
     
 }
 .input-part .info-text{
-   
+   display: none;
     font-size: 17px;
     padding: 12px 10px;
     text-align: center;
@@ -48,11 +49,13 @@ header i{
     
 }
 .info-text.error{
+    display: block;
     color: #721c24;
     background-color: #f8d7da; 
     border: 1px solid #f5c6cb;
 }
 .info-text.pending{
+    display: block;
     color: #0c5460;
     background-color: #d1ecf1; 
     border: 1px solid #bee5eb;
