@@ -127,6 +127,44 @@ header i{
     font-weight: 500;
 
 }
-.weather.part .temp .numb{
+.weather-part .temp .numb{
     font-weight: 600;
+
+}
+.weather-part .temp .deg{
+    font-size: 40px;
+    
+}
+.weather-part img{
+    width: 225px;
+    height: 225px;
+   
+}
+.weather-part .weather{
+    font-size: 21px;
+    text-align: center;
+    margin: 20px 0;
+}
+.weather-part .location{
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.location i{
+    margin-right: 10px;
+}
+.weather-part .bottom-details{
+    
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #bfbfbf;
+}
+.bottom-details .column{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
