@@ -23,12 +23,17 @@ function requestApi(city){
         }
 
     };
-    const query=Object.keys(options.params)
+    const uriMaker=(root, options)=>{
+        const query=Object.keys(options.params)
                     .map(k=>encodeURIComponent(k)+"="+encodeURIComponent(options.params[k]))
                     .join("&");
-    const uri=root+query;
+        const uri=root+query;
 
-    const request=new Request(uri, options)
+        return uri;
+    }
+    
+
+    const request=new Request(uriMaker(root, options), options)
     // fetch the weather app data.
     fetch(request).then((result)=>{
         if(!result.ok){
@@ -39,6 +44,7 @@ function requestApi(city){
        
 
     }).then((result)=>{
-
+        // weatherDetails(result);
+        console.log(result);
     }).catch((e)=>console.log(e.message))
 }
