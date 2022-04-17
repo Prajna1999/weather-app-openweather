@@ -13,6 +13,8 @@ inputField.addEventListener("keyup", (e)=>{
 
 // declare requestAPI function.
 function requestApi(city){
+    infoText.innerText="Getting City Data...";
+    infoText.classList.add("pending");
     const root="https://api.openweathermap.org/data/2.5/weather?";
     const options={
         method:"GET",
@@ -47,4 +49,9 @@ function requestApi(city){
         // weatherDetails(result);
         console.log(result);
     }).catch((e)=>console.log(e.message))
+}
+
+// define a function weatherDetails.
+function weatherDetails(info){
+
 }
